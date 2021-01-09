@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 
 public class NBody {
     public static double readRadius(String file) {

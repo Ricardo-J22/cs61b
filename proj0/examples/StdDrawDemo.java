@@ -1,3 +1,4 @@
+package examples;
 /* 
  *
  * Make sure to see the more detailed description of

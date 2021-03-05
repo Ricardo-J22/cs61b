@@ -96,11 +96,11 @@ public class LinkedListDeque <T>{
         TNode ptr = sentinel.next;
         return getRecursiveHelper(index, count, ptr);
     }
-public static void main(String[] args) {
-    LinkedListDeque<Integer> linked= new LinkedListDeque<>();
-    linked.addLast(0);
-    linked.addFirst(1);
-    System.out.println(linked.removeLast()); 
-}
+// public static void main(String[] args) {
+//     LinkedListDeque<Integer> linked= new LinkedListDeque<>();
+//     linked.addLast(0);
+//     linked.addFirst(1);
+//     System.out.println(linked.removeLast()); 
+// }
 
 }

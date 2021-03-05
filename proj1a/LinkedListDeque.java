@@ -27,7 +27,7 @@ public class LinkedListDeque <T>{
         sentinel.prev.prev.next = sentinel.prev;
         size += 1;
     }
-    public T removeFirst(){
+    public T removeLast(){
         if (isEmpty()){
             return null;
         }
@@ -38,7 +38,7 @@ public class LinkedListDeque <T>{
         return value;
 
     }
-    public T removeLast(){
+    public T removeFirst(){
         if (isEmpty()){
             return null;
         }
@@ -78,7 +78,7 @@ public class LinkedListDeque <T>{
         return find.next.item;
     }
   
-    public T getRecursiveHelper(int index, int count, TNode ptr) {
+    private T getRecursiveHelper(int index, int count, TNode ptr) {
         if (index == count) {
             return ptr.item;
         }
@@ -93,6 +93,11 @@ public class LinkedListDeque <T>{
         TNode ptr = sentinel.next;
         return getRecursiveHelper(index, count, ptr);
     }
-
+// public static void main(String[] args) {
+//     LinkedListDeque<Integer> linked= new LinkedListDeque<>();
+//     linked.addFirst(0);
+//     linked.addFirst(1);
+//     System.out.println(linked.removeFirst()); 
+// }
 
 }

@@ -42,7 +42,7 @@ public class LinkedListDeque <T>{
         if (isEmpty()){
             return null;
         }
-        T value = sentinel.next.item;
+        T value = sentinel.prev.item;
         sentinel.prev.prev.next = sentinel;
         sentinel.prev = sentinel.prev.prev;
         size --;
@@ -96,11 +96,11 @@ public class LinkedListDeque <T>{
         TNode ptr = sentinel.next;
         return getRecursiveHelper(index, count, ptr);
     }
-// public static void main(String[] args) {
-//     LinkedListDeque<Integer> linked= new LinkedListDeque<>();
-//     linked.addFirst(0);
-//     linked.addFirst(1);
-//     System.out.println(linked.removeFirst()); 
-// }
+public static void main(String[] args) {
+    LinkedListDeque<Integer> linked= new LinkedListDeque<>();
+    linked.addLast(0);
+    linked.addFirst(1);
+    System.out.println(linked.removeLast()); 
+}
 
 }

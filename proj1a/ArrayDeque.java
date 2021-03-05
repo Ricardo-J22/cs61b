@@ -17,7 +17,7 @@ public class ArrayDeque <T>{
         if(size == item.length){
             addSpace();
         }
-        if (size <= item.length*0.25 && item.length > 8){
+        if (size < item.length*0.25 && item.length > 8){
             deleteSpace();
         }
     }
@@ -111,17 +111,26 @@ public class ArrayDeque <T>{
     // public static void main(String[] args) {
     //     ArrayDeque<Integer> aq = new ArrayDeque<Integer>();
     //     aq.addFirst(0);
-    //     aq.addFirst(1);
-    //     // System.out.println(aq.removeFirst()); 
-    //     // for (int i = 0; i < 100; i++) {
-    //     //     aq.addLast(i);
-    //     // }
-    //     // aq.printDeque();
-    //     // for (int i = 0; i < 98; i++) {
-    //     //     aq.removeFirst();
-    //     // }
-    //     // aq.printDeque();
-    //     // System.out.println(aq.get(0));
-        
+    //     int c = aq.removeFirst();
+    //     aq.addFirst(2);
+    //     aq.addFirst(3);
+    //     aq.addFirst(4);
+    //     int a = aq.get(0);
+    //     aq.addFirst(6);
+    //     int b = aq.removeLast();
+    //     int l = aq.get(1);
+    //     aq.addFirst(9);
+    //     aq.addLast(10);
+    //     aq.addLast(11);
+    //     aq.get(5);
+    //     aq.addFirst(13);
+    //     aq.addFirst(14);
+    //     int d = aq.removeLast();
+    //     int e = aq.removeFirst();
+    //     int f = aq.removeFirst();
+    //     int g = aq.removeLast();
+    //     aq.addFirst(19);
+    //     int h = aq.removeLast();
+    //     aq.printDeque();
     // }
 }

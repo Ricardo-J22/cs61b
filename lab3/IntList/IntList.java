@@ -119,9 +119,9 @@ public class IntList {
  * as an input, returns null.
  */
 public static IntList reverse(IntList A){
-    if (A.first == 0){
-        return null;
-    }
+    // if (A.first == 0 && A.rest == null){
+    //     return null;
+    // }
     if (A.rest == null){
         return A;
     }

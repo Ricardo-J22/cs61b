@@ -1,28 +1,31 @@
 package hw2;
+
 import edu.princeton.cs.introcs.StdRandom;
 import edu.princeton.cs.introcs.StdStats;
+
 public class PercolationStats {
     // perform T independent experiments on an N-by-N grid
     private int T;
     private double[] openSiteFraction;
+
     public PercolationStats(int N, int T, PercolationFactory pf) {
-        if(N <= 0 || T <= 0){
+        if (N <= 0 || T <= 0) {
             throw new IllegalArgumentException();
         }
         this.T = T;
+        openSiteFraction = new double[T];
         for (int i = 0; i < T; i++) {
-            Percolation exper =  pf.make(N);
+            Percolation exper = pf.make(N);
             while (!exper.percolates()) {
                 int x = StdRandom.uniform(N);
                 int y = StdRandom.uniform(N);
-                if (exper.isOpen(x, y)){
+                if (exper.isOpen(x, y)) {
                     continue;
                 }
                 exper.open(x, y);
             }
-            openSiteFraction [i] = (double)exper.numberOfOpenSites()/ (N * N);
+            openSiteFraction[i] = (double) exper.numberOfOpenSites() / (N * N);
         }
-        
 
     }
 
@@ -45,7 +48,7 @@ public class PercolationStats {
     public double confidenceHigh() {
         return mean() + 1.96 * stddev() / Math.sqrt(T);
     }
-    public static void main(String[] args) {
-        
-    }
+    // public static void main(String[] args) {
+    // PercolationStats a = new PercolationStats(4, 2, pf)
+    // }
 }

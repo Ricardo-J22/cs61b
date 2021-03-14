@@ -25,7 +25,7 @@ public class Percolation {
         this.N = N;
         number = 0;
         topUnion = new WeightedQuickUnionUF(N * N + 1);
-        topSite = N * N ;
+        topSite = N * N;
         botUnion = new WeightedQuickUnionUF(N * N + 2);
         botSite = N * N + 1;
         for (int i = 0; i < N; i++) {
@@ -63,7 +63,7 @@ public class Percolation {
         if (row > N - 1 || col > N - 1 || row < 0 || col < 0) {
             throw new IndexOutOfBoundsException();
         }
-        if(!isOpen(row, col)){
+        if (!isOpen(row, col)) {
             return false;
         }
         return topUnion.connected(topSite, xyto1D(row, col));
@@ -76,7 +76,7 @@ public class Percolation {
 
     // does the system percolate?
     public boolean percolates() {
-        if (number == 0){
+        if (number == 0) {
             return false;
         }
         return botUnion.connected(topSite, botSite);
@@ -86,29 +86,31 @@ public class Percolation {
         return N * y + x;
     }
 
-    private void checkNeighbor(int x, int y){
+    private void checkNeighbor(int x, int y) {
         checkNeighborHelper(x, y, x + 1, y);
         checkNeighborHelper(x, y, x - 1, y);
         checkNeighborHelper(x, y, x, y - 1);
         checkNeighborHelper(x, y, x, y + 1);
     }
-    private void checkNeighborHelper(int x , int y, int newX, int newY) {
-        if (newX < 0 || newX > N-1 || newY < 0 || newY > N-1){
+
+    private void checkNeighborHelper(int x, int y, int newX, int newY) {
+        if (newX < 0 || newX > N - 1 || newY < 0 || newY > N - 1) {
             return;
         }
-        if (universe[newX][newY]){
+        if (universe[newX][newY]) {
             topUnion.union(xyto1D(x, y), xyto1D(newX, newY));
             botUnion.union(xyto1D(x, y), xyto1D(newX, newY));
         }
     }
+
     // public static void main(String[] args) {
-    //     Percolation a = new Percolation(3);
-    //     a.open(0, 0);
-    //     a.open(1, 0);
-    //     a.open(2, 1);
-    //     System.out.println(a.percolates()); 
+    // Percolation a = new Percolation(3);
+    // a.open(0, 0);
+    // a.open(1, 0);
+    // a.open(2, 1);
+    // System.out.println(a.percolates());
     // }
     public static void main(String[] args) {
-        
+
     }
 }

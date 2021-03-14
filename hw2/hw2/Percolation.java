@@ -33,6 +33,7 @@ public class Percolation {
         }
         for (int i = 0; i < N; i++) {
             botUnion.union(botSite, xyto1D(N - 1, i));
+            botUnion.union(topSite, xyto1D(0, i));
         }
     }
 
@@ -82,7 +83,7 @@ public class Percolation {
     }
 
     private int xyto1D(int x, int y) {
-        return N * y + x + 1;
+        return N * y + x;
     }
 
     private void checkNeighbor(int x, int y){
@@ -100,6 +101,14 @@ public class Percolation {
             botUnion.union(xyto1D(x, y), xyto1D(newX, newY));
         }
     }
-
-    
+    // public static void main(String[] args) {
+    //     Percolation a = new Percolation(3);
+    //     a.open(0, 0);
+    //     a.open(1, 0);
+    //     a.open(2, 1);
+    //     System.out.println(a.percolates()); 
+    // }
+    public static void main(String[] args) {
+        
+    }
 }

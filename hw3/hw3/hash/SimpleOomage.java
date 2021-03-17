@@ -1,8 +1,8 @@
 package hw3.hash;
+
 import java.awt.Color;
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.StdDraw;
-
 
 public class SimpleOomage implements Oomage {
     protected int red;
@@ -46,9 +46,9 @@ public class SimpleOomage implements Oomage {
     public int hashCode() {
         final int prime = 3;
         int result = 1;
-        result = result + blue;
-        result = 11 * result + green;
-        result = 17 * result + red;
+        result = result + blue / 5;
+        result = 53 * result + green / 5;
+        result = 71 * result + red / 5;
         return result;
     }
 
@@ -89,12 +89,4 @@ public class SimpleOomage implements Oomage {
         return "R: " + red + ", G: " + green + ", B: " + blue;
     }
 
-    
-   
-
-    
-
-  
-
-
-} 
+}

@@ -2,6 +2,7 @@ package hw3.hash;
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -42,18 +43,18 @@ public class TestSimpleOomage {
         assertNotEquals(ooA, "ketchup");
     }
 
-    /*
+   
     @Test
     public void testHashCodeAndEqualsConsistency() {
-        SimpleOomage ooA = new SimpleOomage(5, 10, 20);
-        SimpleOomage ooA2 = new SimpleOomage(5, 10, 20);
-        HashSet<SimpleOomage> hashSet = new HashSet<>();
+        SimpleOomage ooA = new SimpleOomage(30, 45, 40);
+        SimpleOomage ooA2 = new SimpleOomage(5, 40, 50);
+        Set<SimpleOomage> hashSet = new HashSet<>();
         hashSet.add(ooA);
-        assertTrue(hashSet.contains(ooA2));
-    }*/
+        assertFalse(hashSet.contains(ooA2));
+    }
 
     /* TODO: Uncomment this test after you finish haveNiceHashCode Spread in OomageTestUtility */
-    /*@Test
+    @Test
     public void testRandomOomagesHashCodeSpread() {
         List<Oomage> oomages = new ArrayList<>();
         int N = 10000;
@@ -63,7 +64,7 @@ public class TestSimpleOomage {
         }
 
         assertTrue(OomageTestUtility.haveNiceHashCodeSpread(oomages, 10));
-    }*/
+    }
 
     /** Calls tests for SimpleOomage. */
     public static void main(String[] args) {

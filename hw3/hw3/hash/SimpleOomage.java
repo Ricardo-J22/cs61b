@@ -44,11 +44,11 @@ public class SimpleOomage implements Oomage {
 
     @Override
     public int hashCode() {
-        final int prime = 17;
+        final int prime = 3;
         int result = 1;
-        result = prime * result + blue;
-        result = prime * result + green;
-        result = prime * result + red;
+        result = result + blue;
+        result = 11 * result + green;
+        result = 17 * result + red;
         return result;
     }
 

@@ -48,24 +48,64 @@ public class MyHashMap<K, V> implements Map61B<K, V> {
         return Math.floorMod(key.hashCode(), numBuckets);
     }
 
+    private int hash(K key, int length) {
+        if (key == null) {
+            return 0;
+        }
+
+        int numBuckets = length;
+        return Math.floorMod(key.hashCode(), numBuckets);
+    }
     /* Returns the value to which the specified key is mapped, or null if this
      * map contains no mapping for the key.
      */
     @Override
     public V get(K key) {
-        throw new UnsupportedOperationException();
+        if (key == null){
+            throw new IllegalArgumentException();
+        }
+        return buckets[hash(key)].get(key);
     }
 
     /* Associates the specified value with the specified key in this map. */
     @Override
     public void put(K key, V value) {
-        throw new UnsupportedOperationException();
+        if (key == null){
+            throw new IllegalArgumentException();
+        }
+        if (buckets[hash(key)].containsKey(key)) {
+            buckets[hash(key)].remove(key);
+            buckets[hash(key)].put(key, value);
+            return;
+        }
+        resize();
+        buckets[hash(key)].put(key, value);
+        size++;
+    }
+
+    private void resize() {
+        if(loadFactor() > MAX_LF){
+            ArrayMap<K,V>[] newBuckets = new ArrayMap[buckets.length * 2 ];
+            for (int i = 0; i < newBuckets.length; i += 1) {
+                newBuckets[i] = new ArrayMap<>();
+            }
+            for (int i = 0; i < buckets.length; i++) {
+                if (buckets[i]!= null){
+                    Set<K> temp = buckets[i].keySet();
+                    for (K a : temp) {
+                        newBuckets[hash(a, newBuckets.length)].put(a, this.get(a));
+                    }
+                }
+            }
+            buckets = newBuckets;
+           
+        }
     }
 
     /* Returns the number of key-value mappings in this map. */
     @Override
     public int size() {
-        throw new UnsupportedOperationException();
+        return size;
     }
 
     //////////////// EVERYTHING BELOW THIS LINE IS OPTIONAL ////////////////

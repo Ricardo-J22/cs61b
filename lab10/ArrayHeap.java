@@ -215,10 +215,10 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
                 boolean largerThan = priority > contents[i].myPriority;
                 contents[i].myPriority = priority;
                 if(largerThan){
-                    swim(i);
+                    sink(i);
                 }
                 else
-                    sink(i);
+                    swim(i);
                 break;
             }
         }

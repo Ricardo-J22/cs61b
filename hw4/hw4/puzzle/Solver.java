@@ -53,7 +53,7 @@ public class Solver {
             }
         }
         Stack<WorldState> path = new Stack<>();
-        for (SearchNode ptr = currentNode; ptr.prev != null; ptr = ptr.prev) {
+        for (SearchNode ptr = currentNode; ptr != null; ptr = ptr.prev) {
             path.push(ptr.state);
         }
         while (!path.isEmpty()) {
@@ -66,7 +66,7 @@ public class Solver {
      * initial WorldState.
      */
     public int moves() {
-        return solution.size() ;
+        return solution.size()-1;
     }
 
     /**
